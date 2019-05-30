@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BackendStreamer/BackendStreamer.iml" filepath="$PROJECT_DIR$/BackendStreamer/BackendStreamer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BackendTwitchUsers/BackendTwitchUsers.iml" filepath="$PROJECT_DIR$/BackendTwitchUsers/BackendTwitchUsers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CapitaSelect.iml" filepath="$PROJECT_DIR$/CapitaSelect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Game/Game.iml" filepath="$PROJECT_DIR$/Game/Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GameBackend/GameBackend.iml" filepath="$PROJECT_DIR$/GameBackend/GameBackend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Shared/Shared.iml" filepath="$PROJECT_DIR$/Shared/Shared.iml" />
+    </modules>
+  </component>
+</project>
