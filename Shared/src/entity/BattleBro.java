@@ -32,7 +32,7 @@ public class BattleBro implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public String getFirstName() {
         return firstName;
     }
@@ -72,4 +72,6 @@ public class BattleBro implements Serializable {
     public void setLevel(int level) {
         this.level = level;
     }
+
+
 }
