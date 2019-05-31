@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Entity
 public class BattleBro implements Serializable {
+    private int id;
     private String firstName;
     private String lastName;
     private Date recruitDate;
@@ -15,7 +16,8 @@ public class BattleBro implements Serializable {
     public BattleBro() {
     }
 
-    public BattleBro(String firstName, String lastName, Date recruitDate, Date perishDate, int level) {
+    public BattleBro(int id,String firstName, String lastName, Date recruitDate, Date perishDate, int level) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.recruitDate = recruitDate;
@@ -23,6 +25,14 @@ public class BattleBro implements Serializable {
         this.level = level;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
