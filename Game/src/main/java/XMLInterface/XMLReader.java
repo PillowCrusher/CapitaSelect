@@ -4,10 +4,7 @@ import com.owlike.genson.Genson;
 import entity.Roster;
 import org.apache.camel.util.FileUtil;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
 
 public class XMLReader {
     final static private String saveLocation = "Game/src/GameStorage/Save.sav";
@@ -16,7 +13,8 @@ public class XMLReader {
 
 
     public XMLReader(){
-        File file = new File(saveLocation);
+        serializer = new Genson();
+        file = new File(saveLocation);
         if(file.exists()){
             try {
                 FileUtil.createNewFile(file);
@@ -26,7 +24,22 @@ public class XMLReader {
         }
     }
 
-    public Roster readRoster(){
-        return null;
+    public Roster readRoster() throws IOException {
+        InputStream inputStream = new FileInputStream(file);
+        String json = readFromInputStream(inputStream);
+        return serializer.deserialize(json, Roster.class);
+    }
+
+    private String readFromInputStream(InputStream inputStream)
+            throws IOException {
+        StringBuilder resultStringBuilder = new StringBuilder();
+        try (BufferedReader br
+                     = new BufferedReader(new InputStreamReader(inputStream))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                resultStringBuilder.append(line);
+            }
+        }
+        return resultStringBuilder.toString();
     }
 }

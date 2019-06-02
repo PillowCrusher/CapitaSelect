@@ -1,9 +1,10 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Roster {
+public class Roster implements Serializable {
     private String campaign;
     private List<BattleBro> roster = new ArrayList<>();
     private List<BattleBro> fallen = new ArrayList<>();
