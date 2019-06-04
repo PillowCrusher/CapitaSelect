@@ -5,17 +5,11 @@ import entity.BattleBro;
 public class RosterService {
 
 
-
-    public void recruitBro(BattleBro battleBro){
-
+    public void saveRoster(){
 
     }
 
-    public void dismissBro(BattleBro battleBro){
-
-    }
-
-    public void renameBro(BattleBro battleBro){
+    public void readRoster() {
 
     }
 
