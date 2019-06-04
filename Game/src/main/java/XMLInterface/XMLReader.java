@@ -1,13 +1,13 @@
 package XMLInterface;
 
 import com.owlike.genson.Genson;
-import entity.Roster;
+import Entity.Roster;
 import org.apache.camel.util.FileUtil;
 
 import java.io.*;
 
 public class XMLReader {
-    final static private String saveLocation = "Game/src/GameStorage/Save.sav";
+    final static private String saveLocation = "C:\\Users\\Jeroen\\IdeaProjects\\CapitaSelect\\Game\\src\\GameStorage\\Save.sav";
     private Genson serializer;
     private File file;
 
@@ -15,7 +15,7 @@ public class XMLReader {
     public XMLReader(){
         serializer = new Genson();
         file = new File(saveLocation);
-        if(file.exists()){
+        if(!file.exists()){
             try {
                 FileUtil.createNewFile(file);
             } catch (IOException e) {

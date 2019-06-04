@@ -1,19 +1,42 @@
 package Service;
 
-import entity.BattleBro;
+import Entity.Roster;
+import XMLInterface.XMLService;
+
+import java.util.UUID;
 
 public class RosterService {
 
-    public void recruitBro(BattleBro battleBro){
+    private XMLService xmlService;
+    private BroService broService;
 
+    private Roster currentRoster;
+
+    public RosterService() {
+        xmlService = new XMLService();
+        broService = new BroService();
+
+        currentRoster = readRoster();
     }
 
-    public void dismissBro(BattleBro battleBro){
-
+    public void saveRoster(){
+        if(currentRoster.getId()==null){
+            currentRoster.setId(generateUUID());
+        }
+        xmlService.updateRosterXML(currentRoster);
     }
 
-    public void renameBro(BattleBro battleBro){
+    public Roster readRoster() {
+        return xmlService.getRosterFromXML();
+    }
 
+    public void createNewBro() {
+        currentRoster.getRoster().add(broService.createBro());
+    }
+
+    private String generateUUID(){
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
 
 }

@@ -1,6 +1,6 @@
 package XMLInterface;
 
-import entity.Roster;
+import Entity.Roster;
 
 import java.io.IOException;
 

@@ -1,16 +1,18 @@
 package XMLInterface;
 
 import com.owlike.genson.Genson;
-import entity.Roster;
+import Entity.Roster;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.UUID;
 
 public class XMLWriter {
     private BufferedWriter writer;
     private static final String saveLocation =  "Game/src/GameStorage/Save.sav";
     private Genson serializer;
+
 
     public XMLWriter() {
         serializer = new Genson();

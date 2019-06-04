@@ -1,12 +1,16 @@
-package entity;
+package Entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
+@Entity(name = "BattleBro")
 public class BattleBro implements Serializable {
-    private int id;
+    @Id
+    private String id;
     private String firstName;
     private String lastName;
     private Date recruitDate;
@@ -16,7 +20,7 @@ public class BattleBro implements Serializable {
     public BattleBro() {
     }
 
-    public BattleBro(int id,String firstName, String lastName, Date recruitDate, Date perishDate, int level) {
+    public BattleBro(String id,String firstName, String lastName, Date recruitDate, Date perishDate, int level) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -25,11 +29,11 @@ public class BattleBro implements Serializable {
         this.level = level;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

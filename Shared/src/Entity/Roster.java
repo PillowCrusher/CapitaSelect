@@ -1,12 +1,18 @@
-package entity;
+package Entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity(name = "Roster")
 public class Roster implements Serializable {
+    @Id
+    private String id;
     private String campaign;
+    @OneToMany
     private List<BattleBro> roster = new ArrayList<>();
+    @OneToMany
     private List<BattleBro> fallen = new ArrayList<>();
 
     public Roster() {
@@ -16,6 +22,14 @@ public class Roster implements Serializable {
         this.campaign = campaign;
         this.roster = roster;
         this.fallen = fallen;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCampaign() {
