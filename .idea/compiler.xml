@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="BackendStreamer" />
         <module name="Game" />
+        <module name="GameBackend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="BackendStreamer" target="8" />
-      <module name="Game" target="8" />
+      <module name="BackendStreamer" target="6" />
+      <module name="Game" target="1.5" />
+      <module name="GameBackend" target="6" />
     </bytecodeTargetLevel>
   </component>
 </project>

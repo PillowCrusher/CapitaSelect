@@ -34,6 +34,12 @@ public class RosterService {
         currentRoster.getRoster().add(broService.createBro());
     }
 
+    public void nameRandomBro() {
+
+    }
+
+    public void
+
     private String generateUUID(){
         UUID uuid = UUID.randomUUID();
         return uuid.toString();

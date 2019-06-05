@@ -4,12 +4,22 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "Roster.get",
+                        query = "SELECT r FROM Roster r"
+                ),
+                @NamedQuery(
+                        name = "Roster.removeAll",
+                        query = "DELETE FROM Roster r"
+                )
+        }
+)
 @Entity(name = "Roster")
 public class Roster implements Serializable {
     @Id
     private String id;
-    private String campaign;
     @OneToMany
     private List<BattleBro> roster = new ArrayList<>();
     @OneToMany
@@ -18,8 +28,7 @@ public class Roster implements Serializable {
     public Roster() {
     }
 
-    public Roster(String campaign, List<BattleBro> roster, List<BattleBro> fallen) {
-        this.campaign = campaign;
+    public Roster(List<BattleBro> roster, List<BattleBro> fallen) {
         this.roster = roster;
         this.fallen = fallen;
     }
@@ -30,14 +39,6 @@ public class Roster implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getCampaign() {
-        return campaign;
-    }
-
-    public void setCampaign(String campaign) {
-        this.campaign = campaign;
     }
 
     public List<BattleBro> getRoster() {

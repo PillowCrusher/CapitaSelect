@@ -21,7 +21,7 @@ public class RosterService {
     }
 
     public Roster updateRoster(Roster roster) {
-
+        rosterDao.updateRoster(roster);
         return getCurrentRoster();
     }
 }

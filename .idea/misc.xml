@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/Game/pom.xml" />
         <option value="$PROJECT_DIR$/BackendStreamer/pom.xml" />
+        <option value="$PROJECT_DIR$/GameBackend/pom.xml" />
       </list>
     </option>
   </component>

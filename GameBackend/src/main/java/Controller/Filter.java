@@ -9,7 +9,7 @@ import java.io.IOException;
 
 @SuppressWarnings("Duplicates")
 @Provider
-public class CorsFilter implements Filter {
+public class Filter implements javax.servlet.Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

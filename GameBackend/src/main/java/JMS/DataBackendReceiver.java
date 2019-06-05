@@ -1,19 +1,25 @@
 package JMS;
 
+import Entity.Roster;
+import Service.RosterService;
 import com.owlike.genson.Genson;
 import Entity.BattleBro;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+import javax.inject.Inject;
 import javax.jms.*;
 
-public class DataBackendPublisher implements MessageListener {
+public class DataBackendReceiver implements MessageListener {
 
         private Connection connection;
         private Session session;
         private MessageProducer producer;
         private Genson serializer;
 
-    public DataBackendPublisher() throws JMSException {
+        @Inject
+        private RosterService rosterService;
+
+    public DataBackendReceiver() throws JMSException {
         ConnectionFactory factory = new ActiveMQConnectionFactory("tcp://localhost:61616");
             connection = factory.createConnection();
             connection.setClientID("BattleBrothers");
@@ -28,7 +34,8 @@ public class DataBackendPublisher implements MessageListener {
     public void onMessage(Message message) {
         try {
             String json = ((TextMessage) message).getText();
-            BattleBro bro = serializer.deserialize(json,BattleBro.class);
+            Roster roster = serializer.deserialize(json, Roster.class);
+            rosterService.updateRoster(roster);
         } catch (JMSException e) {
             e.printStackTrace();
         }

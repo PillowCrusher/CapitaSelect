@@ -15,7 +15,6 @@ public class BroService {
         BattleBro battleBro = new BattleBro();
         battleBro.setId(generateUUID());
         battleBro.setFirstName("unnamed");
-        battleBro.setLastName("");
         battleBro.setLevel(1);
         battleBro.setRecruitDate(Calendar.getInstance().getTime());
         return battleBro;
@@ -35,12 +34,6 @@ public class BroService {
         battleBro.setFirstName(name);
         return battleBro;
     }
-
-    public BattleBro setBroClass(BattleBro battleBro, String lastname) {
-        battleBro.setLastName(lastname);
-        return battleBro;
-    }
-
 
     private String generateUUID(){
         UUID uuid = UUID.randomUUID();

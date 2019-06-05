@@ -1,18 +1,31 @@
 package Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "BattleBro.findById",
+                    query = "SELECT b FROM BattleBro b WHERE b.id = :id"
+            ),
+            @NamedQuery(
+                    name = "BattleBro.findByName",
+                    query = "SELECT b FROM BattleBro b WHERE b.firstName = :name"
+            ),
+            @NamedQuery(
+                    name = "BattleBro.findAll",
+                    query = "SELECT b FROM BattleBro  b"
+            )
+        }
+)
 
 @Entity(name = "BattleBro")
 public class BattleBro implements Serializable {
     @Id
     private String id;
     private String firstName;
-    private String lastName;
     private Date recruitDate;
     private Date perishDate;
     private int level;
@@ -20,10 +33,9 @@ public class BattleBro implements Serializable {
     public BattleBro() {
     }
 
-    public BattleBro(String id,String firstName, String lastName, Date recruitDate, Date perishDate, int level) {
+    public BattleBro(String id, String lastName, Date recruitDate, Date perishDate, int level) {
         this.id = id;
         this.firstName = firstName;
-        this.lastName = lastName;
         this.recruitDate = recruitDate;
         this.perishDate = perishDate;
         this.level = level;
@@ -43,14 +55,6 @@ public class BattleBro implements Serializable {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public Date getRecruitDate() {
